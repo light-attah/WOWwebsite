@@ -30,14 +30,14 @@ function doPost(e) {
     if (!sheet) {
       sheet = ss.insertSheet(tabName);
       if (isVolunteer) {
-        sheet.appendRow(['Timestamp', 'First name', 'Last name', 'Email', 'Phone']);
+        sheet.appendRow(['Timestamp', 'First name', 'Last name', 'Email', 'Phone', 'Department']);
       } else {
         sheet.appendRow(['Timestamp', 'First name', 'Email']);
       }
     }
 
     if (isVolunteer) {
-      sheet.appendRow([data.ts || new Date(), data.first || '', data.last || '', data.email || '', data.phone || '']);
+      sheet.appendRow([data.ts || new Date(), data.first || '', data.last || '', data.email || '', data.phone || '', data.dept || '']);
     } else {
       sheet.appendRow([data.ts || new Date(), data.first || '', data.email || '']);
     }

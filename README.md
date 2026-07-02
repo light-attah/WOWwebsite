@@ -15,24 +15,27 @@ WOW3-Website/
 ```
 
 ## Deploy to Vercel (fastest)
-**Option A — drag & drop**
-1. Go to https://vercel.com/new
-2. Drag this `WOW3-Website` folder onto the page.
-3. Framework preset: **Other** (no build command, output directory = root).
+**Option B — from GitHub (what you're using)**
+1. Push this folder's contents to your repo (already done).
+2. In Vercel: **Add New… → Project → Import** the repo.
+3. **IMPORTANT — set Framework Preset to "Other"** (not Preact / any framework).
+   Leave Build Command **empty** and Output Directory as **`.`** (root).
+   The included `vercel.json` also forces this, but set it in the UI too.
 4. Click **Deploy**. Done.
 
-**Option B — from GitHub**
-1. Create a new GitHub repo and push this folder's contents to it:
-   ```bash
-   git init
-   git add .
-   git commit -m "Waves of Worship 3.0 website"
-   git branch -M main
-   git remote add origin https://github.com/<you>/<repo>.git
-   git push -u origin main
-   ```
-2. In Vercel, **Add New… → Project → Import** the repo.
-3. Framework preset **Other**, no build command needed. **Deploy**.
+### Already got the `preact build ... command not found` error?
+Vercel wrongly auto-detected a framework. Fix it once:
+- Vercel dashboard → your project → **Settings → Build & Deployment** (a.k.a. General)
+- **Framework Preset → change to "Other"**
+- Make sure **Build Command** is empty (toggle off any override) and
+  **Output Directory** is `.`
+- Go to **Deployments → ⋯ on the latest → Redeploy**.
+The updated `vercel.json` in this folder prevents it from happening again.
+
+**Option A — drag & drop (no GitHub)**
+1. Go to https://vercel.com/new
+2. Drag this `WOW3-Website` folder onto the page.
+3. Framework preset: **Other**. Click **Deploy**.
 
 ## Features
 - Light + dark mode (follows the visitor's device setting, with a manual toggle).
